@@ -25,7 +25,7 @@ public class LoginController extends HttpServlet {
 		if (un == "" || pw == "") {
 			
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-			request.setAttribute("message", "Incorrect email or password or not register");
+			request.setAttribute("message", "Incorrect email or password / not register");
 			rd.include(request, response);
 			return;
 //			response.sendRedirect("error.jsp");
@@ -51,7 +51,7 @@ public class LoginController extends HttpServlet {
 				return;
 			}
 			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-			request.setAttribute("message", "Incorrect email or password or not register");
+			request.setAttribute("message", "Incorrect email or password / not register");
 			rd.include(request, response);
 			return;
 			//response.sendRedirect("error.jsp");
