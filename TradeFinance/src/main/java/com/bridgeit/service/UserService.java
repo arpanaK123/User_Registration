@@ -12,28 +12,43 @@ import com.bridgeit.model.UserModel;
 public class UserService {
 	private DataSource dataSource;
 	@Autowired
-	UserDAO userDao;	
+	UserDAO userDao;
 
 	public void callToUserdDAO(UserModel userModel)
-	
+
 	{
 		userDao.inserData(userModel);
 	}
-//	public void callToUserdDAO(UserModel userModel)
-//	{
-//		System.out.println("usermodel: "+userModel);
-//			if(userDao.checkEmailPresent(userModel)) {
-//				System.out.println("already exit");	
-//			}
-//			else {
-//				userDao.inserData(userModel);
-//			}
-//	}
-//
-//	public void callToDaoForLogin(UserModel userModel)
-//	{
-//		userDao.insertLoginData(userModel);
-//	}
 
+	public boolean loginUser(String email, String password) {
+
+		boolean status = userDao.checkUser(email, password);
+		if (status) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	public boolean userReg(UserModel user) {
+
+		boolean status = userDao.presenceUser(user);
+		if (status != true) {
+			userDao.inserData(user);
+
+			return true;
+		}
+		return false;
+	}
+
+	public boolean login(String email, String password) {
+
+		boolean status = userDao.checkUser(email, password);
+		if (status) {
+			return true;
+		}
+		return false;
+	}
 
 }

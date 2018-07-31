@@ -33,7 +33,7 @@ public class JavaConfig extends WebMvcConfigurerAdapter {
 	public static ComboPooledDataSource getDataSource() throws PropertyVetoException {
 		ComboPooledDataSource cpds = new ComboPooledDataSource();
 		cpds.setDriverClass("com.mysql.jdbc.Driver"); 
-		cpds.setJdbcUrl("jdbc:mysql://localhost:3306/TradeFinanceLogin");
+		cpds.setJdbcUrl("jdbc:mysql://localhost:3306/TradeFinanceLogin?useSSL=false");
 		cpds.setUser("root");
 		cpds.setPassword("arpana");
 
